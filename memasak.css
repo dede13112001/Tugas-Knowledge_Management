@@ -89,7 +89,7 @@ body {
   margin: auto;
   line-height: 1.6;
   height: 100vh;
-  background-image: url("../images/memasak.jpg");
+  background-image: url('memasak.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
