@@ -73,7 +73,7 @@ body {
   line-height: 1.6;
   background-color: rgb(63, 61, 61);
   margin-left: 10%;
-  background-image: url("../images/Memancing.webp");
+  background-image: url('Memancing.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
