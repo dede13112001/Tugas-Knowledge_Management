@@ -1,0 +1,389 @@
+@font-face {
+  font-family: "Pricedown";
+  src: url("../fonts/pricedown bl.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DarkerHollow";
+  src: url("../fonts/DarkerHollow.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "KR Drak";
+  src: url("../fonts/KR Drak.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#profilePicture {
+  cursor: pointer;
+}
+
+aside p a i {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  color: rgb(0, 227, 243);
+}
+
+.profile i {
+  animation: muncul 1s;
+  animation: bergerak 2s infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes muncul {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+aside p i {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  color: rgb(0, 227, 243);
+}
+@media (max-width: 768px) {
+  .gallery li {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery li {
+    width: 100%;
+  }
+}
+
+@keyframes bergerak {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes membulat {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: auto;
+  line-height: 1.6;
+  height: 100vh;
+  background-image: url("../images/memasak.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none; /* Agar tidak mengganggu interaksi pengguna */
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  background-color: #000000;
+  color: hsl(0, 100%, 50%);
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar .profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar .profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 4px double #00e1ff; /* Menggunakan border double */
+  box-shadow: 0 4px 6px rgba(255, 0, 0, 0.3); /* Menambahkan bayangan */
+  animation: borderAnim 3s linear infinite;
+}
+@keyframes borderAnim {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+aside .profile img:hover {
+  border: 4px solid #d0ff00;
+  transform: scale(1.1); /* Efek memperbesar */
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.sidebar .profile h1 {
+  margin-bottom: 10px;
+  font-family: "KR Drak", sans-serif;
+  color: #fff;
+  text-shadow: red 1px 1px 1px;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: solid;
+}
+
+.sidebar .profile p a {
+  color: #fff;
+  margin: 0 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.sidebar .profile p a:hover {
+  color: #ffd700;
+}
+
+.sidebar .menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .menu ul li {
+  margin: 10px 0;
+}
+
+.sidebar .menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .menu ul li a i {
+  margin-right: 10px;
+  color: rgb(255, 0, 0);
+  text-shadow: #f1b900 1px 1px;
+  font-size: 20px;
+  animation: membulat 2s infinite;
+}
+
+.sidebar .menu ul li a:hover {
+  color: #000000;
+  background-color: #00f7ff;
+  border-radius: 10%;
+  margin-left: 0;
+  margin-right: 25%;
+}
+
+/* Konten Utama */
+#memasak {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(253, 0, 0, 0.3);
+  margin-left: 5%;
+  
+}
+
+.hobbies .gallery {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hobbies .hobby {
+  margin-bottom: 30px;
+  border: 1px solid #03e2ff;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 5px rgba(255, 0, 0, 0.3);
+  overflow: hidden;
+  margin-left: 2%;
+}
+
+.hobbies .hobby h3 {
+  font-size: 22px;
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+.hobbies .hobby-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.hobbies .hobby-content img.gambar {
+  width: 300px;
+  height: auto;
+  border: 4px double #fbff00;
+  box-shadow: 0 -6px 6px rgba(255, 0, 0, 0.637);
+  animation: borderAnim 3s linear infinite;
+  border-radius: 50px;
+  margin-bottom: 3%;
+}
+.hobby-content img:hover{
+  border: 4px solid #15ff00;
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+.gambar{
+  cursor: pointer;
+}
+
+.hobbies p {
+  margin: 10px 0;
+  line-height: 1.6;
+  color: #000000;
+  margin-left: 2%;
+}
+
+.resep p{
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-right: 80%;
+  margin-left: 40px;
+  border-radius: 8%;
+}
+.resep ul {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15%;
+  border: 1px solid #03e2ff;
+
+}
+.bahan strong{
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow:#20ff03 2px 2px;
+  margin-right: 9%;
+  margin-left: 40px;
+  border-radius: 8%;
+}
+
+.satu {
+  color: rgb(0, 0, 0);
+  margin-left: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-right: 27%;
+}
+.bahan ul{
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15%;
+  border: 1px solid #03e2ff;
+}
+
+.tips p{
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: #ff0303 2px 2px;
+  border-radius: 8%;
+  margin-right: 85%;
+  color: #000000;
+  
+}
+.tips ul{
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15%;
+  border: 1px solid #03e2ff;
+}
+.jadwal p{
+  background-color: rgb(0, 227, 243);
+  padding: 5px;
+  border-radius: 8%;
+  border: 1px solid #03e2ff;
+  
+}
+.jadwal strong{
+  color: #000000;
+  border: 1px solid #20ff03;
+  box-shadow: #ff1919 2px 2px;
+}
+
+.hobbies ul {
+  list-style: disc;
+  margin-left: 20px;
+  color: #000000;
+  text-align: left; /* Aligns the text to the right */
+}
+
+.hobbies ul li {
+  margin-bottom: 10px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 700px;
+  margin: auto;
+  width: 80%;
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ccc;
+}
+
+footer {
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+  clear: both;
+  position: fixed;
+  bottom: 0;
+  left: 10%;
+  width: 100%;
+}

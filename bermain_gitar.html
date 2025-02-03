@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobby Website</title>
+    <link rel="stylesheet" href="bermain_gitar.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+</head>
+<body>
+<style>
+@font-face {
+  font-family: "Pricedown";
+  src: url("../fonts/pricedown bl.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DarkerHollow";
+  src: url("../fonts/DarkerHollow.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "KR Drak";
+  src: url("../fonts/KR Drak.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#profilePicture {
+  cursor: pointer; /* Ubah cursor menjadi tangan ketika mouse diarahkan ke gambar */
+}
+
+/* Reset dan Styling Dasar */
+body {
+  font-family: Arial, sans-serif;
+  margin-left: 10%;
+  padding: 0;
+  display: flex;
+  flex: 1;
+  line-height: 1.6;
+  height: 100vh;
+  flex-direction: column;
+  background-image: url("../images/gitar.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav ul li {
+  margin-right: 20px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar */
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  background-color: #000000;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+aside .profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+aside .profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 4px double #00e1ff; /* Menggunakan border double */
+  box-shadow: 0 4px 6px rgba(255, 0, 0, 0.3); /* Menambahkan bayangan */
+  animation: borderAnim 3s linear infinite;
+}
+@keyframes borderAnim {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+aside .profile img:hover {
+  border: 4px solid #15ff00;
+  transform: scale(1.1); /* Efek memperbesar */
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+aside .profile h1 {
+  font-family: "KR Drak", sans-serif;
+  color: #ffffff;
+  text-shadow: #ffffff;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: solid;
+}
+
+aside p a i {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  color: rgb(0, 227, 243);
+}
+
+.profile i {
+  animation: muncul 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes muncul {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+aside p i {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  color: rgb(0, 227, 243);
+}
+
+@media (max-width: 768px) {
+  .gallery li {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery li {
+    width: 100%;
+  }
+}
+
+@keyframes bergerak {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+aside p i:last-child {
+  margin-right: 10px;
+}
+
+aside nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside nav ul h1 {
+  font-weight: 100;
+  font-family: "Pricedown", sans-serif;
+  font-size: 40px;
+  color: #ff0000;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.986);
+}
+
+aside nav ul li {
+  margin-bottom: 15px;
+}
+
+aside nav ul li a {
+  font-family: "Arial", sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+@keyframes membulat {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+aside nav ul li a i {
+  color: rgb(255, 0, 0);
+  text-shadow: #f1b900 1px 1px;
+  font-size: 20px;
+  animation: membulat 2s infinite;
+}
+aside nav ul li a:hover {
+  color: #000000;
+  background-color: #00f7ff;
+  border-radius: 10%;
+}
+
+aside nav ul li a.active {
+  background-color: #2ef0e6;
+  color: rgb(255, 0, 0);
+  border-radius: 4px;
+  padding: 5px 10px;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.menu a.active i {
+  color: #fffafa; /* Warna ikon untuk menu aktif */
+}
+
+/*Mengatur isi section*/ /*..............................*/
+/* Section */
+.hobbies {
+  flex: 1;
+  padding: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.hobby h3 {
+  margin-bottom: 15px;
+  color: #ff0000;
+  text-shadow: #eeff00 -1px 1px 1px;
+  margin-left: 10%;
+  margin-right: 47%;
+  background-color: rgba(0, 0, 0, 0.603);
+  animation: bergerak 2s infinite;
+}
+
+.hobby-content {
+  display: flex;
+  flex: 1;
+}
+
+.hobby-content img.gambar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-left: 10%;
+  margin-right: 20px;
+  margin-bottom: 100%;
+  object-fit: cover;
+  border: 4px double #00e1ff; /* Menggunakan border double */
+  box-shadow: 0 4px 6px rgba(255, 0, 0, 0.3); /* Menambahkan bayangan */
+  animation: borderAnim 3s linear infinite;
+}
+
+.hobby-content img:hover {
+  border: 4px solid #ff0000;
+  transform: scale(1.1); /* Efek memperbesar */
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+img {
+  cursor: pointer;
+}
+
+.hobby-text {
+  flex: 1;
+}
+
+.hobby-text p {
+  margin-bottom: 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.726);
+  animation: muncul 2s ease-in-out;
+  border-radius: 5px;
+}
+
+.hobby-text h5 {
+  margin-top: 20px;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.726);
+  margin-right: 73%;
+  border-radius: 20px;
+  border: 4px double #000000;
+  animation: muncul 2s ease-in-out;
+  font-size: 14px;
+}
+.hobby-text h6 {
+  margin-top: 10px;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.726);
+  border: 4px double #ff0000;
+  margin-right: 90%;
+  border-radius: 20px;
+  margin-left: -10%;
+  font-size: 14px;
+}
+
+.mood h1 {
+  margin-top: 20px;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.726);
+  margin-right: 90%;
+  border: 4px double #ff0000;
+  margin-left: -10%;
+  font-size: 14px;
+  left: 50%;
+  border-radius: 20px;
+}
+
+.hobby-text ul {
+  list-style: disc;
+  margin-left: 20px;
+  color: rgb(255, 255, 255);
+  border-radius: 20px;
+}
+.hobby-text .rock-style ul {
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.726);
+  border-radius: 20px;
+  
+}
+
+.hobby-text strong {
+  text-align: right;
+  color: #020202;
+  background-color: rgba(51, 255, 0, 0.726);
+  border: #ff0000 2px solid;
+}
+.hobby-text .gaya li{
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.726);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 700px;
+  margin: auto;
+  width: 80%;
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ccc;
+}
+
+/* Footer */
+footer {
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+  clear: both;
+  position: fixed;
+  bottom: 0;
+  left: 10%;
+  width: 100%;
+}
+
+.gambar {
+  cursor: pointer;
+}
+
+</style>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img id="profilePicture" src="WhatsApp Image 2025-01-11 at 23.43.59.jpeg" alt="Profile Picture">
+                <h1>Erwanto Pardede</h1>
+               <p>
+                <a href="https://www.facebook.com/Bang Dedee" target="_blank">
+                <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/bangdede_13" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/Mikeychang13" target="_blank">
+                <i class="fa-brands fa-tiktok"></i>
+                </a>
+              </p>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="memancing.html"><i class="fas fa-fish"></i> Memancing</a></li>
+                    <li><a href="bermain_gitar.html"><i class="fas fa-guitar"></i> Bermain Gitar</a></li>
+                    <li><a href="memasak.html"><i class="fas fa-utensils"></i> Memasak</a></li>
+                </ul>
+            </nav>
+        </aside>
+    <section id="bermain-gitar" class="hobbies">
+        <div class="gallery">
+            <div class="hobby">
+                <h3>Bermain Gitar: Eksplorasi Berbagai Genre Musik</h3>
+                <div class="hobby-content">
+                    <img src="43.avif" alt="Bermain Gitar" class="gambar">
+                    <div class="hobby-text">
+                        <p>
+                            Bermain gitar adalah salah satu hobi yang saya nikmati sebagai bentuk ekspresi diri dan juga untuk bersantai. Saya memiliki selera musik yang sangat beragam, mulai dari rock, slow rock, hingga musik DJ/fungkot. Gitar menjadi media yang sempurna untuk mengekspresikan emosi dan suasana hati saya melalui berbagai genre musik.
+                        </p>
+                        <h5>Selera Musik dan Lagu Favorit:</h5>
+                        <div class="rock-style">
+                        <ul>
+                            <li>
+                                <strong>Rock (Avenged Sevenfold - A7X):</strong> Salah satu band rock favorit saya adalah Avenged Sevenfold (A7X), dan saya sangat menikmati memainkan lagu-lagu seperti "Buried Alive", "Seize the Day", "So Far Away", dan "Warmness on the Soul". Lagu-lagu dari A7X memiliki aransemen yang kompleks dan penuh energi, yang menantang teknik bermain gitar saya, baik untuk kunci dasar maupun teknik fingerstyle.
+                            </li>
+                            <li>
+                                <strong>Slow Rock (Thomas Arya):</strong> Selain rock, saya juga suka memainkan lagu-lagu slow rock dari penyanyi seperti Thomas Arya. Musik dengan melodi yang lebih santai dan lirik yang mendalam ini memberikan pengalaman bermain gitar yang lebih intim dan emosional, untuk judul lagu kesukaan saya adalah "Dermaga Biru".
+                            </li>
+                            <li>
+                                <strong>Musik DJ/Fungkot:</strong> Saya juga menikmati musik DJ/fungkot yang lebih modern dan ritmis. Ini memberikan tantangan tersendiri dalam memadukan suara gitar dengan beat elektronik, yang memberikan nuansa berbeda dari genre lainnya.
+                            </li>
+                            <li>
+                                <strong>Dangdut dan Pop:</strong> Selain itu, saya juga menikmati musik dangdut dan pop, yang memiliki karakter ritmis yang kuat dan mudah dinikmati. Lagu-lagu dangdut atau pop sering kali lebih ringan dan penuh dengan nuansa ceria, yang membuat saya ingin memainkan gitar dengan suasana yang lebih santai.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gaya">
+                        <h6>Teknik Bermain Gitar:</h6>
+                        <p>
+                            Saya memainkan gitar dengan berbagai teknik yang saya sesuaikan dengan jenis lagu yang sedang saya mainkan. Untuk beberapa lagu dari A7X seperti "Buried Alive", "Seize the Day", "So Far Away", dan "Warmness on the Soul", saya menguasai dua teknik utama:
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Kunci Biasa:</strong> Untuk lagu-lagu yang lebih langsung, saya memainkan kunci dasar (chords) dengan cara yang lebih mudah dipahami, baik menggunakan teknik strumming maupun picking.
+                            </li>
+                            <li>
+                                <strong>Fingerstyle:</strong> Saya juga memainkan lagu-lagu tersebut dengan teknik fingerstyle, yang melibatkan penggunaan jari tangan untuk memetik senar secara individual, memberikan nuansa yang lebih halus dan dinamis pada permainan gitar.
+                            </li>
+                        </ul>
+                    </div>
+                        <p>
+                            Selain lagu-lagu rock, saya juga memainkan lagu-lagu pop menggunakan kunci akustik, dan untuk lagu dangdut, saya menyesuaikan dengan gaya bermain yang lebih ritmis dan khas.
+                        </p>
+                        <div class="mood">
+                        <h1>Mood Bermain Gitar:</h1>
+                    
+                        <p>
+                            Salah satu hal yang saya nikmati dari bermain gitar adalah kemampuannya untuk menyesuaikan dengan mood saya. Saya sering memainkan lagu-lagu sesuai dengan suasana hati saya saat itu, sehingga permainan gitar terasa lebih personal dan mengalir dengan alami. Terkadang saya memilih lagu yang penuh energi dan tantangan, sementara di lain waktu saya memilih lagu yang lebih santai dan reflektif.
+                        </p>
+                        <p>
+                            Bermain gitar memberi saya kebebasan untuk mengekspresikan diri dalam berbagai genre, mulai dari yang penuh energi hingga yang lebih menenangkan. Saya merasa bermain gitar adalah cara yang sangat efektif untuk melepaskan stres dan menikmati momen-momen dalam hidup.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+     <!-- Footer -->
+     <footer>
+        <p>&copy; 2025 Hobby Website Dede</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
