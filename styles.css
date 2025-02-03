@@ -26,7 +26,7 @@
 
 /* Reset dan Styling Dasar */
 body {
-  background-image: url("../images/hobi.jpg");
+  background-image: url "hobi.jpg";
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
